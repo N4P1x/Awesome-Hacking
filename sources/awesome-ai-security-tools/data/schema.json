@@ -1,0 +1,287 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/scadastrangelove/awesome-ai-security-tools/data/schema.json",
+  "title": "Awesome AI Security Tools data",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["sections"],
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "sections": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/section"
+      }
+    }
+  },
+  "$defs": {
+    "status": {
+      "type": "string",
+      "enum": ["open_source", "research", "commercial_open"]
+    },
+    "flag": {
+      "type": "string",
+      "enum": [
+        "license_caveat",
+        "early_stage",
+        "archived",
+        "heavy_runtime",
+        "requires_api_key",
+        "authorized_testing_only",
+        "commercial_features",
+        "telemetry",
+        "model_dependent",
+        "research",
+        "no_license",
+        "noncommercial",
+        "copyleft",
+        "abliterated_or_uncensored"
+      ]
+    },
+    "link": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["label", "url"],
+      "properties": {
+        "label": {
+          "type": "string",
+          "minLength": 1
+        },
+        "url": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "metrics": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["stars", "updated", "snapshot"],
+      "properties": {
+        "stars": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "updated": {
+          "type": "string",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+        },
+        "snapshot": {
+          "type": "string",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+        }
+      }
+    },
+    "entry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "desc"],
+      "anyOf": [
+        {
+          "required": ["repo"]
+        },
+        {
+          "required": ["model"]
+        }
+      ],
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "hf_model"
+              }
+            },
+            "required": ["kind"]
+          },
+          "then": {
+            "required": ["model", "status"]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "awesome_list"
+              }
+            },
+            "required": ["kind"]
+          },
+          "then": {
+            "required": ["repo"]
+          }
+        },
+        {
+          "if": {
+            "not": {
+              "anyOf": [
+                {
+                  "properties": {
+                    "kind": {
+                      "const": "hf_model"
+                    }
+                  },
+                  "required": ["kind"]
+                },
+                {
+                  "properties": {
+                    "kind": {
+                      "const": "awesome_list"
+                    }
+                  },
+                  "required": ["kind"]
+                }
+              ]
+            }
+          },
+          "then": {
+            "required": ["repo", "status"]
+          }
+        }
+      ],
+      "properties": {
+        "kind": {
+          "type": "string",
+          "enum": ["hf_model", "awesome_list"]
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "repo": {
+          "type": "string",
+          "pattern": "^[^\\s/]+/[^\\s]+$"
+        },
+        "model": {
+          "type": "string",
+          "pattern": "^[^\\s/]+/[^\\s]+$"
+        },
+        "url": {
+          "type": "string",
+          "minLength": 1
+        },
+        "org": {
+          "type": "string",
+          "minLength": 1
+        },
+        "desc": {
+          "type": "string",
+          "minLength": 1
+        },
+        "status": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/status"
+          }
+        },
+        "flags": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/flag"
+          }
+        },
+        "license": {
+          "type": "string",
+          "minLength": 1
+        },
+        "access": {
+          "type": "string",
+          "minLength": 1
+        },
+        "artifacts": {
+          "type": "string",
+          "minLength": 1
+        },
+        "note": {
+          "type": "string",
+          "minLength": 1
+        },
+        "metrics": {
+          "$ref": "#/$defs/metrics"
+        },
+        "sources": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/link"
+          }
+        },
+        "related": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/link"
+          }
+        }
+      }
+    },
+    "group": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["title", "entries"],
+      "properties": {
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "entries": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/entry"
+          }
+        }
+      }
+    },
+    "section": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["title", "anchor"],
+      "oneOf": [
+        {
+          "required": ["entries"],
+          "not": {
+            "required": ["groups"]
+          }
+        },
+        {
+          "required": ["groups"],
+          "not": {
+            "required": ["entries"]
+          }
+        }
+      ],
+      "properties": {
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "anchor": {
+          "type": "string",
+          "minLength": 1
+        },
+        "intro": {
+          "type": "string"
+        },
+        "footer": {
+          "type": "string"
+        },
+        "entries": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/entry"
+          }
+        },
+        "groups": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/group"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "name": "awesome-embedded-security-ci",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Pinned CI tooling for markdown checks",
+  "scripts": {
+    "lint:awesome": "bash scripts/lint-awesome.sh",
+    "lint:links": "bash scripts/check-links.sh",
+    "lint:markdown": "markdownlint-cli2",
+    "check:readme": "node scripts/check-readme.js",
+    "check:staleness": "node scripts/check-staleness.js",
+    "check:web-health": "node scripts/check-web-health.js",
+    "test:staleness": "node --test scripts/check-staleness.test.js",
+    "test:web-health": "node --test scripts/check-web-health.test.js",
+    "find:candidates": "node scripts/find-candidates.js",
+    "test:candidates": "node --test scripts/find-candidates.test.js",
+    "flake:aggregate": "node scripts/link-flake.js aggregate",
+    "test:pr-guidance": "node --test scripts/explain-ci-failure.test.js",
+    "test:flake": "node --test scripts/link-flake.test.js",
+    "fix:staleness": "node scripts/check-staleness.js --fix",
+    "validate": "npm run lint:markdown && npm run lint:awesome && npm run check:readme"
+  },
+  "devDependencies": {
+    "awesome-lint": "2.3.0",
+    "markdown-link-check": "3.15.0",
+    "markdownlint-cli2": "0.24.0"
+  },
+  "overrides": {
+    "smol-toml": "1.7.2"
+  }
+}

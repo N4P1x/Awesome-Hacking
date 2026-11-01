@@ -1,0 +1,36 @@
+name: Report Tool or Resource Update
+description: Report a broken link, deprecated tool, or suggest a high-value reference resource.
+title: "[Update]: <Tool or Resource Name>"
+labels: ["documentation", "maintenance"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form to report deprecated security tools, updated certification exams, or broken URLs in the handbook.
+  - type: dropdown
+    id: update_type
+    attributes:
+      label: Update Category
+      options:
+        - Broken Link or URL
+        - Deprecated or Abandoned Tool
+        - Certification Exam Name/Code Change
+        - Learning Resource Addition
+    validations:
+      required: true
+  - type: input
+    id: location
+    attributes:
+      label: Location in Handbook
+      description: Section number, role title, or appendix where this resource appears.
+      placeholder: e.g., Section 2.1.3 Web App Pen Testing or Appendix B
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: Details and Proposed Change
+      description: What is currently incorrect, and what should it be replaced with?
+      placeholder: Describe the current text and provide the verified working URL or replacement tool.
+    validations:
+      required: true

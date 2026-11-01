@@ -1,0 +1,189 @@
+{
+  "_format": [
+    "Projects a maintainer has looked at and decided not to list.",
+    "",
+    "scripts/find-candidates.js reads this file every run and subtracts it from",
+    "the search results, so anything here is never proposed again. Without it a",
+    "rejected project comes back next month and the month after, and by the",
+    "third identical report everybody has muted the issue. That is why this is",
+    "committed to the repository rather than kept in workflow state.",
+    "",
+    "Each element of \"declined\" is an object:",
+    "  url    (required) the repository or project URL, as it appeared in the",
+    "         report. Matched after normalization, so http vs https, a trailing",
+    "         slash, and a www. prefix are all the same entry.",
+    "  reason (required) why it was declined, in a sentence. Required on",
+    "         purpose: a decline with no reason cannot be revisited later, and",
+    "         a run refuses to start if one is missing.",
+    "  date   (conventional) ISO date of the decision, so a decline made under",
+    "         old circumstances can be found and reconsidered.",
+    "",
+    "To decline a candidate: copy its Repository URL out of the discovery issue,",
+    "add an object here, and commit. To un-decline one, delete its object.",
+    "",
+    "JSON has no comments, which is why this key exists. It is ignored by the",
+    "script, which reads only \"declined\"."
+  ],
+  "declined": [
+    {
+      "url": "https://github.com/hexsecs/awesome-embedded-security",
+      "reason": "This list itself. It matches most of the search terms and would otherwise be proposed for inclusion in itself.",
+      "date": "2026-09-17"
+    },
+    {
+      "url": "https://github.com/ventoy/Ventoy",
+      "reason": "Bootable USB creator for installing operating systems. Carries the secure-boot topic, but it is not an embedded security tool.",
+      "date": "2026-09-17"
+    },
+    {
+      "url": "https://github.com/pbatard/rufus",
+      "reason": "USB drive formatting and bootable media utility. Same reason as Ventoy: the secure-boot topic is incidental to what it does.",
+      "date": "2026-09-17"
+    },
+    {
+      "url": "https://github.com/parawanderer/OpenTagViewer",
+      "reason": "Android app for viewing Apple FindMy trackers. A consumer utility rather than embedded security tooling.",
+      "date": "2026-09-17"
+    },
+    {
+      "url": "https://github.com/Foxboron/sbctl",
+      "reason": "Secure Boot key manager for desktop Linux UEFI. Good at its job, but the target is general-purpose machines, not embedded devices.",
+      "date": "2026-09-17"
+    },
+    {
+      "url": "https://github.com/nix-community/lanzaboote",
+      "reason": "Secure Boot and measured boot for NixOS on desktop and server Linux. Out of scope for the same reason as sbctl.",
+      "date": "2026-09-17"
+    },
+    {
+      "url": "https://github.com/kakahuote1/TinyPKI",
+      "reason": "IoT PKI library whose scope is hard to judge: the repository is recent and its description reads as a feature list rather than a statement of what it does. Worth reconsidering if it establishes a track record.",
+      "date": "2026-09-17"
+    },
+    {
+      "url": "https://github.com/istio/istio",
+      "reason": "Service mesh for Kubernetes. Carries the fault-injection topic, but there it means chaos testing of network calls, not glitching a chip.",
+      "date": "2026-09-18"
+    },
+    {
+      "url": "https://github.com/omarKmekkawy/Useful-Youtube-Channels",
+      "reason": "Index of general electronics and mechanical engineering YouTube channels. Not a security resource.",
+      "date": "2026-09-18"
+    },
+    {
+      "url": "https://github.com/GainSec/AutoProber",
+      "reason": "Flying-probe automation for hardware hacking, and the idea is in scope, but there is nothing here to evaluate: two commits, both on the day the repository was created, one contributor, no license, and one watcher against 331 stars and 20 forks. Worth reconsidering if real development follows.",
+      "date": "2026-09-18"
+    },
+    {
+      "url": "https://github.com/ASCIT31/Dark-Moon",
+      "reason": "General-purpose AI pentesting platform spanning web, cloud, identity, CI/CD, Active Directory and Kubernetes; IoT firmware is one target among many rather than its subject. The description is also promotional in a way the entry guidelines exclude.",
+      "date": "2026-09-18"
+    },
+    {
+      "url": "https://github.com/cjee21/Check-UEFISecureBootVariables",
+      "reason": "PowerShell scripts for auditing Secure Boot variables on Windows PCs. Desktop OS hardening, not embedded, same as sbctl and lanzaboote.",
+      "date": "2026-09-18"
+    },
+    {
+      "url": "https://github.com/pbatard/Mosby",
+      "reason": "Generates and installs custom UEFI Secure Boot keys on desktop and laptop machines. Desktop OS hardening, not embedded.",
+      "date": "2026-09-18"
+    },
+    {
+      "url": "https://github.com/Foxboron/go-uefi",
+      "reason": "Go library for Linux UEFI variables and Secure Boot signing, and the library underneath sbctl, which was declined for the same reason: the target is general-purpose machines, not embedded devices.",
+      "date": "2026-09-18"
+    },
+    {
+      "url": "https://github.com/chaos-mesh/chaos-mesh",
+      "reason": "Chaos engineering platform for Kubernetes. Carries the fault-injection topic in the cloud-reliability sense, like istio, not glitching a chip.",
+      "date": "2026-09-23"
+    },
+    {
+      "url": "https://github.com/chaosblade-io/chaosblade",
+      "reason": "Chaos engineering toolkit for cloud and container infrastructure. Same reason as chaos-mesh: fault injection in the reliability-testing sense.",
+      "date": "2026-09-23"
+    },
+    {
+      "url": "https://github.com/litmuschaos/litmus",
+      "reason": "Cloud-native chaos engineering for Kubernetes. Same reason as chaos-mesh.",
+      "date": "2026-09-23"
+    },
+    {
+      "url": "https://github.com/alexei-led/pumba",
+      "reason": "Chaos testing and network emulation for Docker containers. Same reason as chaos-mesh.",
+      "date": "2026-09-23"
+    },
+    {
+      "url": "https://github.com/pingcap/failpoint",
+      "reason": "Go library for injecting failures into code paths during testing. Software fault injection, not hardware.",
+      "date": "2026-09-23"
+    },
+    {
+      "url": "https://github.com/asatarin/testing-distributed-systems",
+      "reason": "Awesome list about testing distributed systems. Found through the fault-injection topic, but not an embedded security resource.",
+      "date": "2026-09-23"
+    },
+    {
+      "url": "https://github.com/7PH/powerglitch",
+      "reason": "JavaScript library for visual glitch effects on web pages. Matched the glitching search on the word alone.",
+      "date": "2026-09-23"
+    },
+    {
+      "url": "https://github.com/Wren6991/Hazard3",
+      "reason": "RISC-V processor core. Its debug module earns the jtag topic, but it is a CPU design, not a security tool.",
+      "date": "2026-09-23"
+    },
+    {
+      "url": "https://github.com/makalin/KeyForge3D",
+      "reason": "Turns a photo of a key into a 3D-printable model. Physical lock bypass rather than embedded security.",
+      "date": "2026-09-23"
+    },
+    {
+      "url": "https://github.com/hypery11/flipper-tesla-fsd",
+      "reason": "Flipper Zero and ESP32 mods for Tesla vehicles, such as disabling driver-attention nags and unlocking FSD by region. Vehicle modding rather than a security research resource, and the repository has no license.",
+      "date": "2026-09-23"
+    },
+    {
+      "url": "https://github.com/wilbowes/EchoMuse",
+      "reason": "Alexa replacement and controller for the Echo Dot, a consumer device project rather than a security tool or resource.",
+      "date": "2026-10-30"
+    },
+    {
+      "url": "https://github.com/mull-project/mull",
+      "reason": "Software mutation testing for C/C++; its fault-injection topic is the testing sense, not hardware glitching, which is what the Fault Injection section covers.",
+      "date": "2026-10-30"
+    },
+    {
+      "url": "https://github.com/ra9fael/FPGA_MCU_Debugger_Collections",
+      "reason": "DIY collection of debugger builds including clones of commercial probes, rather than a security tool; documentation is primarily Chinese.",
+      "date": "2026-10-30"
+    },
+    {
+      "url": "https://github.com/sammwyy/BLEeding",
+      "reason": "Narrow BLE/BR-EDR flooding and DoS script whose coverage overlaps BlueToolkit's broader BLE attack framework.",
+      "date": "2026-10-30"
+    },
+    {
+      "url": "https://github.com/alestanalves/guia-ackercode",
+      "reason": "General Portuguese-language hacking study guide and awesome list, not embedded-security-specific.",
+      "date": "2026-10-30"
+    },
+    {
+      "url": "https://github.com/RaycarlLei/tool-journal",
+      "reason": "TypeScript durable-execution journal for AI tools; the fault-injection topic is incidental and it is not embedded security.",
+      "date": "2026-10-30"
+    },
+    {
+      "url": "https://github.com/joembedded/JesFs",
+      "reason": "Embedded filesystem library for serial NOR flash, not a security resource; its secure-boot and OTA topics are incidental.",
+      "date": "2026-10-30"
+    },
+    {
+      "url": "https://github.com/GainSec/anti-crime-ecosystem-research",
+      "reason": "Self-published white paper on a single connected public-safety ecosystem, not a general embedded-security resource.",
+      "date": "2026-10-30"
+    }
+  ]
+}

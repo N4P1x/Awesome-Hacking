@@ -1,0 +1,52 @@
+name: Suggest a New Role
+description: Propose adding an emerging or established cybersecurity role to the roadmap.
+title: "[Role Proposal]: <Role Name>"
+labels: ["enhancement", "role-proposal"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for suggesting a role addition. Please ensure the role has established market demand or represents an emerging industry need.
+  - type: input
+    id: role_name
+    attributes:
+      label: Role Title
+      description: What is the formal title of this role?
+      placeholder: e.g., AI Red Teamer, Cloud Security Architect, Post-Quantum Cryptographer
+    validations:
+      required: true
+  - type: dropdown
+    id: pillar
+    attributes:
+      label: Primary Pillar
+      description: Which pillar does this role belong to?
+      options:
+        - Offensive Security
+        - Defensive Security
+        - Governance, Risk, and Compliance (GRC)
+        - Hybrid / Interdisciplinary
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Role Overview & Responsibilities
+      description: Describe what a practitioner in this role does day to day.
+      placeholder: Summarize key duties and business impact.
+    validations:
+      required: true
+  - type: textarea
+    id: tools_and_skills
+    attributes:
+      label: Key Skills and Tools
+      description: List 3 to 5 core competencies and tools practitioners use in this role.
+      placeholder: e.g., Python, Ghidra, YARA, Splunk, MITRE ATT&CK
+    validations:
+      required: true
+  - type: textarea
+    id: certifications
+    attributes:
+      label: Relevant Certifications
+      description: List reputable entry, intermediate, and advanced certifications for this path.
+    validations:
+      required: false

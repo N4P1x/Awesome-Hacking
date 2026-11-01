@@ -1,0 +1,32 @@
+name: "🔧 Broken link or outdated info / Kırık bağlantı veya eski bilgi"
+description: Report a dead link, a changed price/plan or other outdated information
+title: "[Fix] "
+labels: ["maintenance"]
+body:
+  - type: input
+    id: resource
+    attributes:
+      label: Resource / Kaynak
+      description: Name or URL of the affected row.
+    validations:
+      required: true
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What is wrong? / Sorun nedir?
+      options:
+        - Broken or redirected link / Kırık veya yönlenen bağlantı
+        - Price or plan changed / Fiyat veya plan değişti
+        - Certification renamed or discontinued / Sertifika adı değişti veya kaldırıldı
+        - Wrong badge, level or description / Yanlış rozet, seviye veya açıklama
+        - Resource is gone or no longer maintained / Kaynak kalktı veya güncel değil
+        - Other / Diğer
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: Details and official source / Ayrıntılar ve resmi kaynak
+      description: Link the official page that shows the change.
+    validations:
+      required: true

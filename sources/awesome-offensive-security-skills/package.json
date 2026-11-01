@@ -1,0 +1,36 @@
+{
+  "name": "awesome-offensive-security-skills",
+  "version": "2.0.0",
+  "description": "191 battle-tested offensive security skills for AI coding agents — Bug Hunting, Pentesting, Red Teaming, AI Red Teaming, Incident Response",
+  "main": "generate-index.js",
+  "scripts": {
+    "generate-index": "node generate-index.js",
+    "validate": "node generate-index.js --validate",
+    "test": "node generate-index.js --validate"
+  },
+  "keywords": [
+    "cybersecurity",
+    "offensive-security",
+    "bug-bounty",
+    "penetration-testing",
+    "red-teaming",
+    "ai-red-teaming",
+    "claude-code",
+    "gemini-cli",
+    "ai-agent-skills",
+    "mitre-attack",
+    "portswigger",
+    "security-tools"
+  ],
+  "author": "Ak-cybe",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Ak-cybe/awesome-offensive-security-skills.git"
+  },
+  "homepage": "https://github.com/Ak-cybe/awesome-offensive-security-skills",
+  "type": "commonjs",
+  "dependencies": {
+    "yaml": "^2.8.2"
+  }
+}
