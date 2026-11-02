@@ -1,0 +1,148 @@
+# Entries for section: Application
+# Auto-migrated by scripts/migrate.py. Edit individual fields freely.
+
+entries:
+  - id: practices-application-selinux-game
+    url: "https://selinuxgame.org/"
+    title: SELinux Game
+    author:
+      name: "@selinuxgame"
+      url: "https://twitter.com/selinuxgame"
+    category: practices-application
+    type: article
+    languages: [en, zh, jp]
+    difficulty: intermediate
+    date_added: "2018-02-23"
+    archive_url: "https://web.archive.org/web/20230826094446/https://selinuxgame.org/"
+    last_checked: null
+    fingerprint: null
+    status: active
+    raw_rest: "Learn SELinux by doing. Solve Puzzles, show skillz - Written by [@selinuxgame](https://twitter.com/selinuxgame)."
+  - id: practices-application-badlibrary
+    url: "https://github.com/SecureSkyTechnology/BadLibrary"
+    title: BadLibrary
+    author:
+      name: "@SecureSkyTechnology"
+      url: "https://github.com/SecureSkyTechnology"
+    category: practices-application
+    type: article
+    languages: [en, zh, jp]
+    difficulty: intermediate
+    date_added: "2019-10-04"
+    archive_url: "https://web.archive.org/web/20240930090310/https://github.com/SecureSkyTechnology/BadLibrary"
+    last_checked: null
+    fingerprint: null
+    status: active
+    raw_rest: "Vulnerable web application for training - Written by [@SecureSkyTechnology](https://github.com/SecureSkyTechnology)."
+  - id: practices-application-hackxor
+    url: "https://hackxor.net/"
+    title: Hackxor
+    author:
+      name: "@albinowax"
+      url: "https://twitter.com/albinowax"
+    category: practices-application
+    type: article
+    languages: [en, zh, jp]
+    difficulty: intermediate
+    date_added: "2019-10-04"
+    archive_url: "https://web.archive.org/web/20260818160732/https://hackxor.net/"
+    last_checked: null
+    fingerprint: null
+    status: active
+    raw_rest: "Realistic web application hacking game - Written by [@albinowax](https://twitter.com/albinowax)."
+  - id: practices-application-owasp-juice-shop
+    url: "https://github.com/juice-shop/juice-shop"
+    title: OWASP Juice Shop
+    author:
+      name: "@bkimminich"
+      url: "https://github.com/bkimminich"
+    category: practices-application
+    type: article
+    languages: [en, zh, jp]
+    difficulty: intermediate
+    date_added: "2019-10-04"
+    archive_url: "https://web.archive.org/web/20240701192222/https://github.com/juice-shop/juice-shop"
+    last_checked: null
+    fingerprint: null
+    status: active
+    raw_rest: "Probably the most modern and sophisticated insecure web application - Written by [@bkimminich](https://github.com/bkimminich) and the [@owasp_juiceshop](https://twitter.com/owasp_juiceshop) team."
+  - id: practices-application-portswigger-web-security-academy
+    url: "https://portswigger.net/web-security"
+    title: Portswigger Web Security Academy
+    author:
+      name: PortSwigger
+      url: "https://portswigger.net/"
+    category: practices-application
+    type: article
+    languages: [en, zh, jp]
+    difficulty: intermediate
+    date_added: "2019-10-04"
+    archive_url: "https://web.archive.org/web/20220610215400/https://portswigger.net/web-security"
+    last_checked: null
+    fingerprint: null
+    status: active
+    raw_rest: "Free trainings and labs - Written by [PortSwigger](https://portswigger.net/)."
+  - id: practices-application-oopssec-store
+    url: "https://github.com/kOaDT/oss-oopssec-store"
+    title: OopsSec Store
+    author:
+      name: "@kOaDT"
+      url: "https://github.com/kOaDT"
+    category: practices-application
+    type: tool
+    languages: [en, zh, jp]
+    difficulty: intro
+    date_added: "2026-05-12"
+    archive_url: "https://web.archive.org/web/20260512185924/https://github.com/kOaDT/oss-oopssec-store"
+    last_checked: null
+    fingerprint: null
+    status: active
+    raw_rest: "Intentionally vulnerable e-commerce application built with Next.js - Written by [@kOaDT](https://github.com/kOaDT)."
+  - id: practices-application-nextjs-security-headers-pitfall
+    url: "https://poszo.com/security/nextjs-headers-pitfall"
+    title: The Next.js security-headers pitfall
+    author:
+      name: Poszo
+      url: "https://poszo.com"
+    category: practices-application
+    type: article
+    languages: [en]
+    difficulty: intermediate
+    date_added: "2026-07-26"
+    archive_url: "https://web.archive.org/web/20260726083016/https://poszo.com/security/nextjs-headers-pitfall"
+    last_checked: null
+    fingerprint: null
+    status: active
+    raw_rest: "Shows how a correct-looking Next.js headers() block can overwrite route-specific rules or differ from final CDN responses, with an inventory, merge, preview, deployed-route verification, and rollback workflow."
+  - id: practices-application-where-the-llm-stops
+    url: "https://aayushyadav.hashnode.dev/where-the-llm-stops-deterministic-scoring-in-an-ai-assisted-vapt-pipeline"
+    title: "Where the LLM Stops: Deterministic Scoring in an AI-Assisted VAPT Pipeline"
+    author:
+      name: Aayush Yadav
+      url: "https://github.com/maverickaayush"
+    category: practices-application
+    type: article
+    languages: [en]
+    difficulty: intermediate
+    date_added: "2026-08-22"
+    archive_url: "https://web.archive.org/web/20260905073445/https://aayushyadav.hashnode.dev/where-the-llm-stops-deterministic-scoring-in-an-ai-assisted-vapt-pipeline"
+    last_checked: null
+    fingerprint: null
+    status: active
+    raw_rest: "Technical write-up on designing an AI-assisted VAPT pipeline with deterministic CVSS scoring, passive confidence verification, and LLM-generated vulnerability explanations and remediation."
+  - id: practices-application-the-200-that-proved-nothing
+    url: "https://aivist.dev/the-200-that-proved-nothing"
+    title: The 200 That Proved Nothing
+    author:
+      name: Lang Li
+      url: "https://github.com/Aivist"
+    category: practices-application
+    type: article
+    languages: [en, zh]
+    difficulty: advanced
+    date_added: "2026-08-24"
+    archive_url: "https://web.archive.org/web/20260905074141/https://aivist.dev/the-200-that-proved-nothing"
+    last_checked: null
+    fingerprint: null
+    status: active
+    raw_rest: "Why a 200 OK is not proof of an access-control bug: a seeded BOLA benchmark where a model asked to confirm a secure endpoint 79 times and a downgrade-only code gate refused every one, plus the similarity thresholds, a deterministic check that failed the same way, and a plausible fix measured and rejected for making results worse."

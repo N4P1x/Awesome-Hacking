@@ -149,3 +149,33 @@ Contributions are always welcome. Please see [contributing.md](contributing.md) 
 ## License
 
 The root Awesome-Hacking content is [CC0-1.0 Universal](LICENSE). Individual sources in `sources/` retain their own licenses (see the table above and each source's `LICENSE` file).
+
+---
+
+## Consolidation Update (Nov 2026) — Added 18 more sources
+
+After initial consolidation of 14 sources, further deep searches cloned 18 additional repositories into `sources/` for a total of **31 source directories**, ~190,000 files.
+
+New sources added:
+
+- `sources/cve/` — CVE exploit database (178,601 files, trickest/cve, MIT)
+- `sources/SecLists/` — SecLists wordlists/payloads (6,263 files, danielmiessler, MIT)
+- `sources/vulhub/` — Vulnerable environments (2,898 files, vulhub, MIT)
+- `sources/PayloadsAllTheThings/` — Web payloads (441 files, swisskyrepo, MIT)
+- `sources/CheatSheetSeries/` — OWASP cheat sheets (379 files, OWASP, MIT)
+- `sources/hacker101/` — HackerOne training (277 files, Hacker0x01, MIT)
+- `sources/awesome-osint/` — OSINT tools (jivoi, MIT)
+- `sources/awesome-pentest/` — Pentest resources (enaqx, MIT)
+- `sources/awesome-cryptography/` — Cryptography (sobolevn, MIT)
+- `sources/awesome-ctf/` — CTF frameworks (apsdehal, MIT)
+- `sources/awesome-devsecops/` — DevSecOps (devsecops, MIT)
+- `sources/awesome-forensics/` — Forensics (Cugu, MIT)
+- `sources/awesome-reversing/` — Reverse engineering (HACKE-RC, PLACEHOLDER)
+- `sources/awesome-web-hacking/` — Web hacking (infoslack, MIT)
+- `sources/awesome-web-security/` — Web security (qazbnm456, MIT)
+- `sources/awesome-shell/` — Shell tools (alebcay, MIT)
+- `sources/awesome-bug-bounty/` — Bug bounty (djadmin, MIT)
+- `sources/awesome-ml-for-cybersecurity/` — ML security (jivoi, MIT)
+- `sources/awesome-autonomous-hacking-agents/` — Autonomous agents (vitorfhc, PLACEHOLDER)
+
+All sources have `LICENSE` files (or placeholders). Search index (`search_index.py`) covers 514 README files across all 31 sources. Health report (`health_report.py`) reports 189,948 total files.
