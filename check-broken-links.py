@@ -25,6 +25,43 @@ TIMEOUT = 8
 WORKERS = 32
 UA = {"User-Agent": "Mozilla/5.0 (MAX-HACK-TOOLS link-checker)"}
 
+# Hosts that are documentation/payload examples, not real links:
+# SSRF examples (127.0.0.1, 0.0.0.0), private ranges, reserved TLDs.
+SKIP_HOST_RE = re.compile(
+    r"^("
+    r"127\.|0\.0\.0\.0|localhost|"
+    r"10\.|192\.168\.|169\.254\.|"
+    r"172\.(1[6-9]|2[0-9]|3[01])\.|"
+    r"\[?::1\]?|"
+    r"example\.(com|org|net)|"
+    r".*\.(local|internal|test|invalid)$"
+    r")",
+    re.IGNORECASE,
+)
+
+
+def clean_url(url):
+    """Strip trailing markdown/punctuation artifacts from an extracted URL."""
+    url = url.rstrip("`'\"")
+    while url and url[-1] in ".,;:!?":
+        url = url[:-1]
+    # strip unbalanced closers left over from markdown link syntax
+    for opener, closer in (("(", ")"), ("[", "]"), ("{", "}")):
+        while url.endswith(closer) and url.count(closer) > url.count(opener):
+            url = url[:-1]
+    return url
+
+
+def should_skip(url):
+    """Skip URLs pointing at loopback/private/example hosts."""
+    from urllib.parse import urlsplit
+
+    try:
+        host = urlsplit(url).hostname or ""
+    except ValueError:
+        return True
+    return bool(SKIP_HOST_RE.match(host))
+
 
 def iter_readmes():
     """Yield paths of README files (root + sources, no .git)."""
@@ -37,12 +74,18 @@ def iter_readmes():
 
 
 def extract_urls(path):
-    """Extract unique URLs from a file."""
+    """Extract unique, checkable URLs from a file."""
     try:
         with open(path, encoding="utf-8", errors="ignore") as fh:
-            return set(URL_PATTERN.findall(fh.read()))
+            raw = URL_PATTERN.findall(fh.read())
     except OSError:
         return set()
+    urls = set()
+    for u in raw:
+        u = clean_url(u)
+        if u and not should_skip(u):
+            urls.add(u)
+    return urls
 
 
 def check_url(url):
