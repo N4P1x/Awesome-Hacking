@@ -33,7 +33,11 @@ SKIP_HOST_RE = re.compile(
     r"10\.|192\.168\.|169\.254\.|"
     r"172\.(1[6-9]|2[0-9]|3[01])\.|"
     r"\[?::1\]?|"
-    r"example\.(com|org|net)|"
+    # obfuscated loopback IP forms used in SSRF payload examples:
+    r"\d+$|0x[0-9a-f]+.*$|0o\d+.*$|0[0-7]+\..*$|"
+    # single-label placeholder hosts from PoC docs (HOST, ATTACKER_IP, attacker):
+    r"[^.\s]+$|"
+    r"(.*\.)?example\.(com|org|net)$|"
     r".*\.(local|internal|test|invalid)$"
     r")",
     re.IGNORECASE,
